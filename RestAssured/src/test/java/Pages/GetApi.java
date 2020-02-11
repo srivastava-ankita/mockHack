@@ -1,6 +1,6 @@
 package Pages;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.given;
 
 import org.junit.Test;
 import org.testng.Assert;
@@ -34,10 +34,11 @@ public class GetApi {
 		json = res.asString();
 		jsonpath = new JsonPath(json);
 		res1 = jsonpath.get("data[0]");
-		res.then().body(arguments, responseAwareMatcher)
+		
 		Assert.assertEquals(200, res.getStatusCode());
 	  //  res.then().body("employee_name",equals("Tiger Nixon"));
 		System.out.println(res1);
+		System.out.println("asdsfsd");
 
 	}
 

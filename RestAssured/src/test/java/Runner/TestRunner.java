@@ -9,8 +9,11 @@ import io.cucumber.junit.CucumberOptions;
 
 @CucumberOptions(
 
-		features = "C:\\Jack_Selenium\\RestAssured\\Features\\RestFeature.feature", glue = "RestAssuredStepDefinition", plugin = {
-				"pretty", "html:target/cucumber-reports" }, monochrome = true
+		features = "Features/RestFeature.feature", 
+		glue = "RestAssuredStepDefinition", 
+		plugin = {"pretty", "html:target/cucumber-reports" },
+		monochrome = true,
+		tags= {"@PostEmpTest"}
 
 )
 

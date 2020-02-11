@@ -8,6 +8,7 @@ import java.util.HashMap;
 import org.junit.Test;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import restutills.Restutills;
 
@@ -36,11 +37,17 @@ public class PostApi {
 	public void postAPI() {
 
 		res = given().contentType(ContentType.JSON).body(map).when().post();
+		
 
 	}
 
 	public void validateResponse() {
+		System.out.println(res.getStatusCode());
 		res.then().body("SuccessCode", equalTo("OPERATION_SUCCESS"));
+		/* res.then().body(arguments, responseAwareMatcher) */
+		System.out.println(res.getBody().asString());
+		JsonPath j=new JsonPath(res.asString());
+		System.out.println(j.get("SuccessCode")+".....................");
 
 	}
 

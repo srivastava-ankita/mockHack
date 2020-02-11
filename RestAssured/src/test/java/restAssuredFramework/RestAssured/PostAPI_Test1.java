@@ -28,6 +28,7 @@ public class PostAPI_Test1 {
 	      
 	      RestAssured.baseURI="http://restapi.demoqa.com/customer";
 	      RestAssured.basePath="/register ";
+	      System.out.println(map);
 	}
 	
 	@Test
